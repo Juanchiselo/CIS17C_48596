@@ -1,0 +1,27 @@
+﻿Build started 10/22/2014 12:38:30 PM.
+     1>Project "C:\Users\José\Documents\School\CIS17C\Homework\Homework1_TriangularMatrix\Homework1_TriangularMatrix\Homework1_TriangularMatrix.vcxproj" on node 2 (Build target(s)).
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt main.cpp
+         main.cpp
+     1>c:\users\josé\documents\school\cis17c\homework\homework1_triangularmatrix\homework1_triangularmatrix\triangularmatrix.h(83): warning C4244: '=' : conversion from 'float' to 'int', possible loss of data
+                 c:\users\josé\documents\school\cis17c\homework\homework1_triangularmatrix\homework1_triangularmatrix\triangularmatrix.h(60) : while compiling class template member function 'void TriangularMatrix<int>::fillArray(void)'
+                 c:\users\josé\documents\school\cis17c\homework\homework1_triangularmatrix\homework1_triangularmatrix\main.cpp(31) : see reference to function template instantiation 'void TriangularMatrix<int>::fillArray(void)' being compiled
+                 c:\users\josé\documents\school\cis17c\homework\homework1_triangularmatrix\homework1_triangularmatrix\main.cpp(27) : see reference to class template instantiation 'TriangularMatrix<int>' being compiled
+     1>c:\users\josé\documents\school\cis17c\homework\homework1_triangularmatrix\homework1_triangularmatrix\triangularmatrix.h(68): warning C4244: 'initializing' : conversion from 'float' to 'unsigned int', possible loss of data
+                 c:\users\josé\documents\school\cis17c\homework\homework1_triangularmatrix\homework1_triangularmatrix\triangularmatrix.h(60) : while compiling class template member function 'void TriangularMatrix<float>::fillArray(void)'
+                 c:\users\josé\documents\school\cis17c\homework\homework1_triangularmatrix\homework1_triangularmatrix\main.cpp(32) : see reference to function template instantiation 'void TriangularMatrix<float>::fillArray(void)' being compiled
+                 c:\users\josé\documents\school\cis17c\homework\homework1_triangularmatrix\homework1_triangularmatrix\main.cpp(28) : see reference to class template instantiation 'TriangularMatrix<float>' being compiled
+     1>c:\users\josé\documents\school\cis17c\homework\homework1_triangularmatrix\homework1_triangularmatrix\triangularmatrix.h(78): warning C4244: '=' : conversion from 'int' to 'float', possible loss of data
+     1>c:\users\josé\documents\school\cis17c\homework\homework1_triangularmatrix\homework1_triangularmatrix\triangularmatrix.h(54): warning C4244: '=' : conversion from 'int' to 'float', possible loss of data
+                 c:\users\josé\documents\school\cis17c\homework\homework1_triangularmatrix\homework1_triangularmatrix\triangularmatrix.h(47) : while compiling class template member function 'void TriangularMatrix<float>::fillColumnArray(void)'
+                 c:\users\josé\documents\school\cis17c\homework\homework1_triangularmatrix\homework1_triangularmatrix\triangularmatrix.h(61) : see reference to function template instantiation 'void TriangularMatrix<float>::fillColumnArray(void)' being compiled
+                 c:\users\josé\documents\school\cis17c\homework\homework1_triangularmatrix\homework1_triangularmatrix\triangularmatrix.h(35) : while compiling class template member function 'TriangularMatrix<float>::TriangularMatrix(int)'
+                 c:\users\josé\documents\school\cis17c\homework\homework1_triangularmatrix\homework1_triangularmatrix\main.cpp(28) : see reference to function template instantiation 'TriangularMatrix<float>::TriangularMatrix(int)' being compiled
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\José\Documents\School\CIS17C\Homework\Homework1_TriangularMatrix\Debug\Homework1_TriangularMatrix.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\José\Documents\School\CIS17C\Homework\Homework1_TriangularMatrix\Debug\Homework1_TriangularMatrix.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\José\Documents\School\CIS17C\Homework\Homework1_TriangularMatrix\Debug\Homework1_TriangularMatrix.lib" /MACHINE:X86 Debug\main.obj
+         Homework1_TriangularMatrix.vcxproj -> C:\Users\José\Documents\School\CIS17C\Homework\Homework1_TriangularMatrix\Debug\Homework1_TriangularMatrix.exe
+     1>Done Building Project "C:\Users\José\Documents\School\CIS17C\Homework\Homework1_TriangularMatrix\Homework1_TriangularMatrix\Homework1_TriangularMatrix.vcxproj" (Build target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:00.73
