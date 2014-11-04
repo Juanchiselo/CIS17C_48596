@@ -1,3 +1,13 @@
+/*
+* Jose Sandoval
+* CIS-17C: C++ Programming
+* September 9, 2014
+* Assignment #1: Triangular Matrix
+* Description: Triangular matrix, first data structure.
+			   An array that has variable column size
+			   on each row.
+*/
+
 #ifndef TRIANGULARMATRIX_H
 #define TRIANGULARMATRIX_H
 
