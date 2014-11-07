@@ -1,0 +1,81 @@
+Midterm CIS 17C
+
+Note: Submit the Midterm to my RCC email account mark.lehr@rcc.edu
+with the following subject:  LastName,FirstName - Midterm - 48596.
+Also, submit here in the assignment section as well.  Post any
+questions you have in the bulletin board for clarification purposes.
+
+Submit the solutions/program in a zipped file.  
+Do the best you can and turn in as much as you can.
+
+For all the following problems, make sure you devise testing of the
+algorithms that prove that what you programmed worked as intended.
+I want a menu that runs the programs and returns to the menu for 
+further choices.  See the menu program sent with this midterm.
+
+I want you to do any 4 or 5 of the following programs but there must be
+one of each type Vector, List, and Recursion.  Yes, these are easy
+problems.  Make sure you total the points when you are done.  100 is
+the maximum score.  Put your problems and point count in a menu program.
+
+Here are the points for each problem
+1 - 15 pts
+2 - 20 pts
+3 - 25 pts
+4 - 15 pts
+5 - 20 pts
+6 - 25 pts
+7 - 25 pts
+8 - 15 pts
+9 - 25 pts
+
+1)  Vector - Fill a vector with random inputs.  Write a function
+             vector *top(vector x,int p) that returns in a
+	         vector the top p elements of the x input vector.
+             
+2)  Vector - Fill a vector with random inputs.  Write a function
+             vector *mode(vector x) that returns a vector that
+             represents the mode of vector x.  Note:  Make sure
+             there is more than one mode.
+
+3)  Vector - Fill a vector with random inputs.  Write a function
+             statClass *stat(vector x) that returns a class that
+             contains the min,max and average of the x vector but
+			 also uses a map to solve the mode problem and returns
+			 the important elements for the mode.
+
+4)  List -   Try using a list that does 1)
+
+5)  List -   Try using a list that implements 2)
+
+6)  List -   Try using a list that implements 3)
+
+7)  List -   A self-organizing list is a list that moves each element
+             to the front of the list whenever it is accessed.  This
+             modification improves the efficiency of the standard
+             implementation if the list is used mostly for look-up.
+             Use inheritance to define a SelfOrganizingList class
+             template.  Add a single function that tests if the list
+             contains the element by returning a boolean then putting
+             the element at the front of the list.
+
+8)  Recursion - Implement the tangent function recursively using the
+                formulas
+
+                              tan(2x)=(2 tan(x))/(1-(tan(x))^2)
+
+			
+                              |tan(x) ~ x + x^3/3| < epsilon
+      
+                Accuracy to 2 decimal places is good enough.
+
+9)  Recursion - Use mutual recursion to implement the following
+                functions
+                              
+                              h(2x)=2h(x)g(x)
+                              g(2x)=1+2(h(x)^2)
+  
+                      h(x) ~ x + x^3/6 just test if |x| < epsilon
+                      g(x) ~ 1 + x^2/2 just test if |x| < epsilon
+
+		Epsilon -> accuracy to 6 decimal places is good enough.
