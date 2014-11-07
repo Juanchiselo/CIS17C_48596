@@ -37,8 +37,22 @@ int main(int argc, char** argv)
 
 float savings(float presentValue, float interestRate, int years)
 {
-	if (years > 0)
+	/*if (years > 0)
 		return (savings(presentValue, interestRate, years - 1) * (1 + interestRate));
 
-	return presentValue;
+	return presentValue;*/
+
+	if (years == 1)
+		return (presentValue / 2) * (1 + interestRate) * (1 + interestRate);
+
+	int halfway = years / 2;
+	int top = years - halfway;
+
+	float m1 = savings(presentValue, interestRate, halfway);
+	float m2 = savings(presentValue, interestRate, top);
+
+	return (m1 + m2);
+
+
+	
 }
