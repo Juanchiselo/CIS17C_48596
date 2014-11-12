@@ -31,34 +31,4 @@ public:
 	int getEnergy();
 };
 
-Character::Character(string name)
-{
-	this->name = name;
-	health = 100;
-	energy = 100;
-}
-
-Character::~Character()
-{
-
-}
-
-string Character::getName()
-{
-	return name;
-}
-
-int Character::getHealth()
-{
-	return health;
-}
-
-void Character::defend(int damage, int defense)
-{
-	defense -= damage;
-
-	if (defense <= 0)
-		health -= damage;
-}
-
 #endif // CHARACTER_H

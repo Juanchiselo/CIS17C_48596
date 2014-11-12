@@ -20,6 +20,7 @@ class Hand
 {
 private:
 	int size;
+	int chosenCard;
 	Deck deck;
 	deque<Card> currentHand;
 public:
@@ -29,43 +30,5 @@ public:
 	void displayHand();
 	Card* getCard(int);
 };
-
-Hand::Hand()
-{
-	size = 5;
-
-	for (int card = 0; card < size; card++)
-		currentHand.push_back(deck.getCard());
-}
-
-Hand::~Hand()
-{
-
-}
-
-void Hand::replaceCard()
-{
-	currentHand.push_back(deck.getCard());
-}
-
-void Hand::displayHand()
-{
-	int count = 0;
-	for (auto iterator = currentHand.begin();
-		iterator != currentHand.end(); iterator++)
-	{
-		count++;
-		cout << "Card #" << count << ":  ";
-		iterator->print();
-	}
-}
-
-Card* Hand::getCard(int chosenCard)
-{
-	Card* card = &currentHand.at(chosenCard);
-	currentHand.erase(currentHand.begin() + chosenCard);
-	replaceCard();
-	return card;
-}
 
 #endif // HAND_H

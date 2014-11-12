@@ -17,11 +17,8 @@ using namespace std;
 int main()
 {
 	srand(static_cast<unsigned int>(time(0)));
-	
-	Game game;
 
-	game.startGame();
-	game.startBattle();
+	Game::getInstance()->startGame();
 	
 	return 0;
 }
