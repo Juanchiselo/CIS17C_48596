@@ -19,7 +19,6 @@ class Character
 private:
 	string name;
 	int health;
-	int defense;
 	int energy;
 	int experienceLevel;
 	list<string> attacks;
@@ -27,8 +26,9 @@ public:
 	Character(string);
 	~Character();
 	string getName();
-	void attack(int);
-	void defend(int);
+	void defend(int, int);
+	int getHealth();
+	int getEnergy();
 };
 
 Character::Character(string name)
@@ -48,15 +48,14 @@ string Character::getName()
 	return name;
 }
 
-void Character::attack(int damage)
+int Character::getHealth()
 {
-
+	return health;
 }
 
-void Character::defend(int damage)
+void Character::defend(int damage, int defense)
 {
-	if (defense > 0)
-		defense -= damage;
+	defense -= damage;
 
 	if (defense <= 0)
 		health -= damage;

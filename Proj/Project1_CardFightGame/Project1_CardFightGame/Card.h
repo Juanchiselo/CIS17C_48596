@@ -42,4 +42,14 @@ void Card::print()
 		 << "D: " << defense << endl;
 }
 
+int Card::getAttack()
+{
+	return attack;
+}
+
+int Card::getDefense()
+{
+	return defense;
+}
+
 #endif //CARD_H

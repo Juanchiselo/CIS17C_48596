@@ -10,6 +10,7 @@
 #define HAND_H
 
 #include <list>
+#include <deque>
 
 #include "Deck.h"
 
@@ -20,12 +21,13 @@ class Hand
 private:
 	int size;
 	Deck deck;
-	list<Card> currentHand;
+	deque<Card> currentHand;
 public:
 	Hand();
 	~Hand();
 	void replaceCard();
 	void displayHand();
+	Card* getCard(int);
 };
 
 Hand::Hand()
@@ -56,6 +58,14 @@ void Hand::displayHand()
 		cout << "Card #" << count << ":  ";
 		iterator->print();
 	}
+}
+
+Card* Hand::getCard(int chosenCard)
+{
+	Card* card = &currentHand.at(chosenCard);
+	currentHand.erase(currentHand.begin() + chosenCard);
+	replaceCard();
+	return card;
 }
 
 #endif // HAND_H
