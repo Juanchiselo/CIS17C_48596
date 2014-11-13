@@ -21,51 +21,72 @@ void Hand::replaceCard()
 
 void Hand::displayHand()
 {
-	char upperLeftCorner = 201;
-	char upperRightCorner = 187;
-	char leftLowerCorner = 200;
-	char rightLowerCorner = 188;
-	char horizontal = 205;
-	char vertical = 186;
-
-	string cards;
-
-	/*cout << leftUpperCorner << horizontal << horizontal << horizontal
-		<< horizontal << horizontal << horizontal << rightUpperCorner
-		<< "\n" << vertical << "      " << vertical << "\n" << vertical
-		<< " A: " << attack << " " << vertical << "\n" << vertical
-		<< " D: " << defense << " " << vertical << "\n" << vertical
-		<< "      " << vertical << "\n" << leftLowerCorner
-		<< horizontal << horizontal << horizontal << horizontal
-		<< horizontal << horizontal << rightLowerCorner << endl;*/
-
-
-	for (int card = 0; card < 5; card++)
+	string output;
+	
+	for (int line = 1; line <= 35; line++)
 	{
-		cards += char (201);
-
-		for (int lengthSize = 0; lengthSize < 6; lengthSize++)
+		if (line % 6 == 0)
+			output += "\n";
+		if (line < 6)
+			output += "Card #" + to_string(line) + "   ";
+		if (line < 12)
 		{
-			cards += char (205);
+			output += char(201);
+			for (int lengthSize = 0; lengthSize < 6; lengthSize++)
+				output += char(205);
+			output += char(187);
+			output += "  ";
 		}
-
-		cards += char (187);
+		if (line < 18 || line < )
+		{
+			output += char(186);
+			output += "      ";
+			output += char(186);
+			output += "  ";
+		}
+		if (line < 24)
+		{
+			output += char(186);
+			output += " A: " + to_string(currentHand.at(card - 1).getAttack());
+			output += " ";
+			output += char(186);
+			output += "  ";
+		}
+		if (line < 30)
+		{
+			output += char(186);
+			output += " D: " + to_string(currentHand.at(card - 1).getDefense());
+			output += " ";
+			output += char(186);
+			output += "  ";
+		}
+	}
+	
+	for (int card = 1; card <= 5; card++)
+	{
+		cards += char(186);
+		cards += "      ";
+		cards += char(186);
 		cards += "  ";
 	}
 
 	cards += "\n";
 
-	cout << cards;
-
-
-	/*int count = 0;
-	for (auto iterator = currentHand.begin();
-		iterator != currentHand.end(); iterator++)
+	for (int card = 1; card <= 5; card++)
 	{
-		count++;
-		cout << "Card #" << count << ":  " << endl;
-		iterator->print();
-	}*/
+		cards += char(200);
+
+		for (int lengthSize = 0; lengthSize < 6; lengthSize++)
+		{
+			cards += char(205);
+		}
+
+		cards += char(188);
+		cards += "  ";
+	}
+	cards += "\n";
+
+	cout << cards;
 }
 
 Card* Hand::getCard(int chosenCard)
