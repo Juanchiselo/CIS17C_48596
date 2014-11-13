@@ -1,10 +1,10 @@
 #include "Deck.h"
 
-Deck::Deck()
+Deck::Deck(int deckSize)
 {
-	size = 200;
+	this->deckSize = deckSize;
 
-	for (int card = 0; card < size; card++)
+	for (int card = 0; card < deckSize; card++)
 	{
 		Card* aCard = new Card(rand() % 9 + 1, rand() % 4 + 1);
 		cards.push(*aCard);

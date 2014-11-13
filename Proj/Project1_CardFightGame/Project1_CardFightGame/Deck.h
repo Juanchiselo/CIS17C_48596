@@ -20,9 +20,9 @@ class Deck
 {
 private:
 	queue<Card> cards;
-	int size;
+	int deckSize;
 public:
-	Deck();
+	Deck(int);
 	~Deck();
 	void displayDeck();
 	Card getCard();

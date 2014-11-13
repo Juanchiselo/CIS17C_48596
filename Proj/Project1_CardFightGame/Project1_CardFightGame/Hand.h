@@ -22,7 +22,7 @@ class Hand
 private:
 	int size;
 	int chosenCard;
-	Deck deck;
+	Deck* deck;
 	deque<Card> currentHand;
 public:
 	Hand();

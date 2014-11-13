@@ -4,6 +4,15 @@ Card::Card(int attack, int defense)
 {
 	this->attack = attack;
 	this->defense = defense;
+
+	if (attack == defense)
+	{
+		isItemCard = true;
+		this->attack = 0;
+		this->defense = 0;
+	}
+	else
+		isItemCard = false;
 }
 
 Card::~Card()
@@ -37,4 +46,9 @@ int Card::getAttack()
 int Card::getDefense()
 {
 	return defense;
+}
+
+bool Card::getItemCard()
+{
+	return isItemCard;
 }

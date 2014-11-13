@@ -10,6 +10,7 @@
 #define GAME_H
 
 #include "Player.h"
+#include "GUI.h"
 
 class Game
 {
@@ -22,20 +23,23 @@ public:
 	static Game* getInstance();
 	void setGameState(GameState);
 	GameState getGameState();
+	GUI* gui;
 	void startGame();
 	void gameOver();
 	void startBattle();
 	void displayStats();
 	void compareCards();
 	void replaceCards();
+	void displayChosenCards();
 private:
 	Player* player;
 	Player* enemy;
 	GameState gameState;
+	stack<Card>* itemCards;
 	static Game* _instance;
 	Game();
-	Game(const Game& copy);
-	Game& operator=(const Game& copy);
+	Game(const Game&);
+	Game& operator=(const Game&);
 };
 
 #endif // GAME_H

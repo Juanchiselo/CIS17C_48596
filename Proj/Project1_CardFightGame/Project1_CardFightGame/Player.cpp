@@ -1,4 +1,5 @@
 #include "Player.h"
+#include "Game.h"
 
 Player::Player(bool isAI)
 {
@@ -42,7 +43,7 @@ Player::Player(bool isAI)
 
 Player::~Player()
 {
-
+	cout << "Player destroyed" << endl;
 }
 
 void Player::displayHand()
@@ -58,8 +59,9 @@ void Player::attack()
 	{
 		do
 		{
-			cout << "\n\nChoose a card:\n" << endl;
+			cout << endl;
 			displayHand();
+			cout << "\nChoose a card: ";
 			cin >> chosenCard;
 		} while (chosenCard > 5 || chosenCard < 1);
 		chosenCard--;
@@ -86,17 +88,6 @@ void Player::attack()
 	}
 
 	currentCard = hand.getCard(chosenCard);
-
-	if (!isAI)
-	{
-		cout << "\nYou chose card:" << endl;
-		currentCard->print();
-	}
-	else
-	{
-		cout << "\nEnemy chose card:" << endl;
-		currentCard->print();
-	}
 }
 
 Card* Player::getCurrentCard()

@@ -18,12 +18,14 @@ class Card
 private:
 	int attack;
 	int defense;
+	bool isItemCard;
 public:
 	Card(int attack, int defense);
 	~Card();
 	void print();
 	int getAttack();
 	int getDefense();
+	bool getItemCard();
 };
 
 #endif //CARD_H

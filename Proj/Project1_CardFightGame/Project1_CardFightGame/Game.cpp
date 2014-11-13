@@ -4,6 +4,7 @@ Game* Game::_instance = NULL;
 
 Game::Game()
 {
+	gui = new GUI();
 	gameState = GAMEOVER;
 }
 
@@ -36,6 +37,9 @@ void Game::startGame()
 	player = new Player(false);
 	enemy = new Player(true);
 
+	// Instantiate item cards stack.
+	itemCards = new stack<Card>();
+
 	// Start Battle
 	startBattle();
 }
@@ -62,6 +66,7 @@ void Game::startBattle()
 		displayStats();
 		player->attack();
 		enemy->attack();
+		displayChosenCards();
 		compareCards();
 		replaceCards();
 	} while (gameState != GAMEOVER);
@@ -72,14 +77,35 @@ void Game::startBattle()
 
 void Game::displayStats()
 {
-	cout << player->getCharacter()->getName() << "                    "
-		<< enemy->getCharacter()->getName() << endl;
-	cout << "Health: " << player->getCharacter()->getHealth()
-		<< "                    "
-		<< "Health: " << enemy->getCharacter()->getHealth() << endl;
-	cout << "Energy: " << player->getCharacter()->getEnergy()
-		<< "                    "
-		<< "Energy: " << enemy->getCharacter()->getEnergy();
+	cout << gui->drawTopBox(46) << endl;
+
+	for (int i = 1; i < 4; i++)
+	{
+		cout << char(186);
+		cout << "     ";
+		if (i == 1)
+		{
+			cout << player->getCharacter()->getName() 
+				 << "           "
+				 << enemy->getCharacter()->getName();
+		}
+		if (i == 2)
+		{
+			cout << "Health: " << player->getCharacter()->getHealth()
+				 << "            "
+				 << "Health: " << enemy->getCharacter()->getHealth();
+		}
+		if (i == 3)
+		{
+			cout << "Energy: " << player->getCharacter()->getEnergy()
+				 << "            "
+				 << "Energy: " << enemy->getCharacter()->getEnergy();
+		}
+		cout << "       ";
+		cout << char(186) << endl;
+	}
+
+	cout << gui->drawBottomBox(46) << endl;
 }
 
 void Game::compareCards()
@@ -96,6 +122,7 @@ void Game::compareCards()
 		replaceCards();
 		player->attack();
 		enemy->attack();
+		displayChosenCards();
 		compareCards();
 	}
 	else
@@ -112,4 +139,83 @@ void Game::replaceCards()
 {
 	player->getHand()->replaceCard();
 	enemy->getHand()->replaceCard();
+}
+
+void Game::displayChosenCards()
+{
+	string output;
+
+	output += "Player chose card:     ";
+	output += "Enemy chose card:\n";
+
+	for (int line = 0; line <= 12; line++)
+	{
+		if (line % 2 == 1)
+			output += "\n     ";
+		if (line % 2 == 0)
+			output += "             ";
+
+		if (line == 1 || line == 2)
+		{
+			output += gui->drawTopBox(6);
+			output += "  ";
+		}
+		if (line == 3 || line == 4 || line == 9 || line == 10)
+		{
+			output += char(186);
+			output += "      ";
+			output += char(186);
+			output += "  ";
+		}
+		if (line == 5 || line == 6)
+		{
+			output += char(186);
+			if (line == 5)
+			{
+				if (player->getCurrentCard()->getItemCard())
+					output += " Item";
+				else
+					output += " A: " + to_string(player->getCurrentCard()->getAttack());
+			}
+			else
+			{
+				if (enemy->getCurrentCard()->getItemCard())
+					output += " Card";
+				else
+					output += " A: " + to_string(enemy->getCurrentCard()->getAttack());
+			}	
+			output += " ";
+			output += char(186);
+			output += "  ";
+		}
+		if (line == 7 || line == 8)
+		{
+			output += char(186);
+			if (line == 7)
+			{
+				if (player->getCurrentCard()->getItemCard())
+					output += " Card";
+				else
+					output += " D: " + to_string(player->getCurrentCard()->getDefense());
+			}
+			else
+			{
+				if (enemy->getCurrentCard()->getItemCard())
+					output += " Card";
+				else
+					output += " D: " + to_string(enemy->getCurrentCard()->getDefense());
+			}
+			
+			output += " ";
+			output += char(186);
+			output += "  ";
+		}
+		if (line == 11 || line == 12)
+		{
+			output += gui->drawBottomBox(6);
+			output += "  ";
+		}
+	}
+
+	cout << output;
 }
