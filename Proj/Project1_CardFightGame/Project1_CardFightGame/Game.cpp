@@ -33,7 +33,7 @@ void Game::startGame()
 	// Instantiate player objects.
 	// The passed argument indicates whether
 	// the player is AI (Artificial Intelligence)
-	player = new Player(true);
+	player = new Player(false);
 	enemy = new Player(true);
 
 	// Start Battle
@@ -42,10 +42,13 @@ void Game::startGame()
 
 void Game::gameOver()
 {
-	if (player == NULL)
-		cout << "Enemy WINS!!!" << endl;
+	cout << "\n\n\n";
+	cout << "GAME OVER!" << endl;
+
+	if (player->getCharacter()->getHealth() <= 0)
+		cout << enemy->getCharacter()->getName() << " WINS!!!" << endl;
 	else
-		cout << "Player WINS!!!" << endl;
+		cout << player->getCharacter()->getName() << " WINS!!!" << endl;
 }
 
 void Game::startBattle()
@@ -63,6 +66,7 @@ void Game::startBattle()
 		replaceCards();
 	} while (gameState != GAMEOVER);
 
+	displayStats();
 	gameOver();
 }
 

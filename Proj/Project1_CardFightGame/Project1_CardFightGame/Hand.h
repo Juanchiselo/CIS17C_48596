@@ -11,6 +11,7 @@
 
 #include <list>
 #include <deque>
+#include <string>
 
 #include "Deck.h"
 
@@ -29,6 +30,7 @@ public:
 	void replaceCard();
 	void displayHand();
 	Card* getCard(int);
+
 };
 
 #endif // HAND_H

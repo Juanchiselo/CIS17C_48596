@@ -62,11 +62,30 @@ void Player::attack()
 			displayHand();
 			cin >> chosenCard;
 		} while (chosenCard > 5 || chosenCard < 1);
+		chosenCard--;
 	}
 	else
-		chosenCard = rand() % 4 + 1;
+	{
+		int bestCardAttack = 0;
+		int bestCardDefense = 0;
+		for (int card = 0; card < 5; card++)
+		{
+			currentCard = hand.getCard(card);
+			if (bestCardAttack < currentCard->getAttack())
+			{
+				bestCardAttack = currentCard->getAttack();
+				chosenCard = card;
 
-	currentCard = hand.getCard(chosenCard - 1);
+				if (bestCardDefense < currentCard->getDefense())
+				{
+					bestCardDefense = currentCard->getDefense();
+					chosenCard = card;
+				}
+			}
+		}
+	}
+
+	currentCard = hand.getCard(chosenCard);
 
 	if (!isAI)
 	{
