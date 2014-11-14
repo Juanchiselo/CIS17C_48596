@@ -18,7 +18,7 @@ Player::Player(bool isAI)
 			cin >> chosenCharacter;
 		}
 		else
-			chosenCharacter = rand() % 3 + 1;
+			chosenCharacter = rand() % 4 + 1;
 
 		switch (chosenCharacter)
 		{

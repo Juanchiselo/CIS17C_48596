@@ -41,14 +41,8 @@ void Game::startGame()
 	Item* anItem;
 	for (int item = 0; item < 50; item++)
 	{
-		anItem = new Item(rand() % 3 + 1);
+		anItem = new Item(rand() % 4 + 1);
 		items.push(*anItem);
-	}
-
-	for (int i = 0; i < items.size(); i++)
-	{
-		cout << "Item #" << i << ": " << items.top().getType() << endl;
-		items.pop();
 	}
 
 	// Start Battle

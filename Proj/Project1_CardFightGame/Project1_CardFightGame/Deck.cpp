@@ -6,7 +6,7 @@ Deck::Deck(int deckSize)
 
 	for (int card = 0; card < deckSize; card++)
 	{
-		Card* aCard = new Card(rand() % 9 + 1, rand() % 4 + 1);
+		Card* aCard = new Card(rand() % 9 + 1, rand() % 5 + 1);
 		cards.push(*aCard);
 	}
 }
