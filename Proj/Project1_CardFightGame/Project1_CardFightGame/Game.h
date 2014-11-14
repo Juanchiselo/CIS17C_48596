@@ -11,18 +11,14 @@
 
 #include "Player.h"
 #include "GUI.h"
+#include "GameState.h"
 
 class Game
 {
 public:
-	enum GameState
-	{
-		GAMEOVER,
-		PLAYING
-	};
 	static Game* getInstance();
-	void setGameState(GameState);
-	GameState getGameState();
+	void setGameState(GameState::GameState);
+	GameState::GameState getGameState();
 	GUI* gui;
 	void startGame();
 	void gameOver();
@@ -34,8 +30,8 @@ public:
 private:
 	Player* player;
 	Player* enemy;
-	GameState gameState;
-	stack<Card>* itemCards;
+	GameState::GameState gameState;
+	stack<Item> items;
 	static Game* _instance;
 	Game();
 	Game(const Game&);

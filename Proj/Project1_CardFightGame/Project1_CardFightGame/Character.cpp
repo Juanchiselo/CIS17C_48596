@@ -46,6 +46,6 @@ void Character::defend(int damage, int defense)
 	if (health <= 0)
 	{
 		health = 0;
-		Game::getInstance()->setGameState(Game::GAMEOVER);
+		Game::getInstance()->setGameState(GameState::GAMEOVER);
 	}
 }

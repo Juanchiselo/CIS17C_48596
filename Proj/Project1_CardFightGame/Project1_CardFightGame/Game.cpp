@@ -5,7 +5,7 @@ Game* Game::_instance = NULL;
 Game::Game()
 {
 	gui = new GUI();
-	gameState = GAMEOVER;
+	gameState = GameState::GAMEOVER;
 }
 
 Game* Game::getInstance()
@@ -16,12 +16,12 @@ Game* Game::getInstance()
 	return _instance;
 }
 
-void Game::setGameState(GameState gameState)
+void Game::setGameState(GameState::GameState gameState)
 {
 	this->gameState = gameState;
 }
 
-Game::GameState Game::getGameState()
+GameState::GameState Game::getGameState()
 {
 	return gameState;
 }
@@ -29,7 +29,7 @@ Game::GameState Game::getGameState()
 void Game::startGame()
 {
 	// Change the gameState to PLAYING
-	gameState = PLAYING;
+	gameState = GameState::PLAYING;
 
 	// Instantiate player objects.
 	// The passed argument indicates whether
@@ -37,8 +37,19 @@ void Game::startGame()
 	player = new Player(false);
 	enemy = new Player(true);
 
-	// Instantiate item cards stack.
-	itemCards = new stack<Card>();
+	// Instantiate items stack.
+	Item* anItem;
+	for (int item = 0; item < 50; item++)
+	{
+		anItem = new Item(rand() % 3 + 1);
+		items.push(*anItem);
+	}
+
+	for (int i = 0; i < items.size(); i++)
+	{
+		cout << "Item #" << i << ": " << items.top().getType() << endl;
+		items.pop();
+	}
 
 	// Start Battle
 	startBattle();
@@ -69,7 +80,7 @@ void Game::startBattle()
 		displayChosenCards();
 		compareCards();
 		replaceCards();
-	} while (gameState != GAMEOVER);
+	} while (gameState != GameState::GAMEOVER);
 
 	displayStats();
 	gameOver();
@@ -110,6 +121,11 @@ void Game::displayStats()
 
 void Game::compareCards()
 {
+	if (player->getCurrentCard()->getItemCard())
+	{
+		cout << "\nYou got item: " << endl;
+	}
+
 	if (player->getCurrentCard()->getAttack() > enemy->getCurrentCard()->getAttack())
 	{
 		cout << "\nPlayer attacks!" << endl;

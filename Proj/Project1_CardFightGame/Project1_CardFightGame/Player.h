@@ -10,6 +10,7 @@
 #define PLAYER_H
 
 #include "Hand.h"
+#include "Item.h"
 #include "Character.h"
 
 using namespace std;
@@ -21,6 +22,7 @@ private:
 	Card* currentCard;
 	Character* character;
 	bool isAI;
+	map<Item, int> items;
 public:
 	Player(bool);
 	~Player();
