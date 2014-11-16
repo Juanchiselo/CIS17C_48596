@@ -1,0 +1,10 @@
+Melee,10,5,Assault Rifle,15,10,Plasma Grenade,20,10,Spartan Laser,40,30
+
+Master Chief,Halo
+Darth Vader,Star Wars,Kick,Dark Force,Lightsaber,I Am Your FATHER!
+Harry Potter,Harry Potter,Expelliarmus,Incendio,Bombarda Maxima,Expecto Patronum
+Goku,Dragon Ball,Ki Blast,Dragon Fist,Kamehameha,Spirit Bomb
+Pikachu,Pokemon,Quick Attack,Electro Ball,Thunderbolt,Thunder
+Mario,Nintendo,Kick,Punch,Water Gun,Fireball 
+Batman,DC Comics,Kick,Batarang,Batclaw,Bat Swarm 
+Iron Man,Marvel,Rocket Uppercut,Plasma Disc,Uni-Beam,Air Strike

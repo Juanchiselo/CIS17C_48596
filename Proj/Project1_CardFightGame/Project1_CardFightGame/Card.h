@@ -9,24 +9,18 @@
 #ifndef CARD_H
 #define CARD_H
 
-#include <iostream>
-#include <map>
-
-using namespace std;
-
 class Card
 {
 private:
 	int attack;
 	int defense;
-	bool isItemCard;
+	bool isSpecialCard;
 public:
 	Card(int attack, int defense);
 	~Card();
-	void print();
 	int getAttack();
 	int getDefense();
-	bool getItemCard();
+	bool isItemCard();
 };
 
 #endif //CARD_H

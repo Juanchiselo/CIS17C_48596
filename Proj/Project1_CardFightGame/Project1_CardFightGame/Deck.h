@@ -9,9 +9,10 @@
 #ifndef DECK_H
 #define DECK_H
 
+// System Libraries
 #include <queue>
-#include <stack>
 
+// Header Files
 #include "Card.h"
 
 using namespace std;
@@ -19,12 +20,12 @@ using namespace std;
 class Deck
 {
 private:
+	int size;
 	queue<Card> cards;
-	int deckSize;
 public:
 	Deck(int);
 	~Deck();
-	void displayDeck();
+	int getSize();
 	Card getCard();
 };
 

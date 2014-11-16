@@ -81,7 +81,7 @@
     <ClCompile Include="Card.cpp" />
     <ClCompile Include="Character.cpp" />
     <ClCompile Include="Deck.cpp" />
-    <ClCompile Include="Game.cpp" />
+    <ClCompile Include="GameManager.cpp" />
     <ClCompile Include="GUI.cpp" />
     <ClCompile Include="Hand.cpp" />
     <ClCompile Include="Item.cpp" />
@@ -92,7 +92,7 @@
     <ClInclude Include="Card.h" />
     <ClInclude Include="Character.h" />
     <ClInclude Include="Deck.h" />
-    <ClInclude Include="Game.h" />
+    <ClInclude Include="GameManager.h" />
     <ClInclude Include="GameState.h" />
     <ClInclude Include="GUI.h" />
     <ClInclude Include="Hand.h" />

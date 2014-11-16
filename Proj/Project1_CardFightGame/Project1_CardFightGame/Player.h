@@ -1,14 +1,20 @@
 /*
-* Jose Sandoval
-* CIS-17C: C++ Programming
-* November 11, 2014
-* Project #1: Card Fight Game
-* Description: A fighting game that uses cards.
-*/
+ * Jose Sandoval
+ * CIS-17C: C++ Programming
+ * November 11, 2014
+ * Project #1: Card Fight Game
+ * Description: A fighting game that uses cards.
+ */
 
 #ifndef PLAYER_H
 #define PLAYER_H
 
+// System Libraries
+#include <iterator>
+#include <iomanip>
+#include <map>
+
+// Header Files
 #include "Hand.h"
 #include "Item.h"
 #include "Character.h"
@@ -19,18 +25,22 @@ class Player
 {
 private:
 	Hand hand;
-	Card* currentCard;
+	Card* chosenCard;
 	Character* character;
 	bool isAI;
-	map<Item, int> items;
+	map<string, int> items;
 public:
 	Player(bool);
 	~Player();
-	void displayHand();
-	void attack();
+	bool isPlayerAI();
 	Character* getCharacter();
-	Card* getCurrentCard();
+	Card* getChosenCard();
 	Hand* getHand();
+	map<string, int>* getItems();
+	void attack();
+	void addItem(Item);
+	void viewItems();
+	void applyItem(int);
 };
 
 #endif // PLAYER_H

@@ -1,5 +1,14 @@
+/*
+ * Jose Sandoval
+ * CIS-17C: C++ Programming
+ * November 11, 2014
+ * Project #1: Card Fight Game
+ * Description: A fighting game that uses cards.
+ */
+
 #include "Item.h"
 
+// Overloaded constructor for Item class.
 Item::Item(int itemType)
 {
 	switch (itemType)
@@ -14,18 +23,19 @@ Item::Item(int itemType)
 		type = "Energy Package";
 		break;
 	case 4:
-		type = "Card swap";
+		type = "Cards Swap";
 		break;
 	default:
 		break;
 	}
 }
 
+// Destructor for Item class.
 Item::~Item()
 {
-
 }
 
+// Returns the type of the item.
 string Item::getType()
 {
 	return type;

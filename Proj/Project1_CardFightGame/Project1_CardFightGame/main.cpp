@@ -6,19 +6,41 @@
  * Description: A fighting game that uses cards.
  */
 
-#include <iostream>
+// System libraries
 #include <ctime>
 
-#include "Game.h"
-
-using namespace std;
-
+// Header files
+#include "GameManager.h"
 
 int main()
 {
+	// Initialize the random number generator.
 	srand(static_cast<unsigned int>(time(0)));
 
-	Game::getInstance()->startGame();
+	// Instatiate GameManager object and start game.
+	GameManager::getInstance()->startGame();
 	
+	char answer;
+
+	do
+	{
+		cout << "Would you like to battle again? (Y/N)" << endl;
+		cin >> answer;
+
+		switch (answer)
+		{
+		case 'y':
+		case 'Y':
+			GameManager::getInstance()->startGame();
+			break;
+		case 'n':
+		case 'N':
+			cout << "Goodbye!" << endl;
+			break;
+		default:
+			cout << "ERROR: Not a valid choice!\n\n" << endl;
+		}
+	} while (answer != 'n' && answer != 'N');
+
 	return 0;
 }

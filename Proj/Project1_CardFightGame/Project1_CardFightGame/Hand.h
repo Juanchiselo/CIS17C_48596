@@ -9,10 +9,12 @@
 #ifndef HAND_H
 #define HAND_H
 
-#include <list>
+// System Libraries
 #include <deque>
 #include <string>
+#include <iostream>
 
+// Header Files
 #include "Deck.h"
 
 using namespace std;
@@ -20,17 +22,15 @@ using namespace std;
 class Hand
 {
 private:
-	int size;
 	int chosenCard;
 	Deck* deck;
-	deque<Card> currentHand;
+	deque<Card> hand;
 public:
 	Hand();
 	~Hand();
+	Card* getCard(int);
 	void replaceCard();
 	void displayHand();
-	Card* getCard(int);
-
 };
 
 #endif // HAND_H
