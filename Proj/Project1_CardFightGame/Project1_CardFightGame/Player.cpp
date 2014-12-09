@@ -125,8 +125,6 @@ void Player::attack()
 	// in the hand of the player.
 	else
 	{
-		hand.displayHand();
-
 		Card* currentCard;
 
 		int bestCardAttack = 0;
