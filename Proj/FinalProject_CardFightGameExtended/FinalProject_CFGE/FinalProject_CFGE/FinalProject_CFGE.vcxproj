@@ -11,9 +11,9 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{DFCE8302-EB22-4992-9C48-05A5956B960F}</ProjectGuid>
+    <ProjectGuid>{36F5F53B-12C3-4E06-9918-5D21978ED26B}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
-    <RootNamespace>Assignment7_HashCompare</RootNamespace>
+    <RootNamespace>FinalProject_CFGE</RootNamespace>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -78,11 +78,32 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Card.cpp" />
+    <ClCompile Include="Character.cpp" />
+    <ClCompile Include="Deck.cpp" />
+    <ClCompile Include="GameManager.cpp" />
+    <ClCompile Include="GUI.cpp" />
+    <ClCompile Include="Hand.cpp" />
+    <ClCompile Include="Item.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Player.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="LinkedList.h" />
-    <ClInclude Include="Node.h" />
+    <ClInclude Include="BinaryNode.h" />
+    <ClInclude Include="BinarySearchTree.h" />
+    <ClInclude Include="Card.h" />
+    <ClInclude Include="Character.h" />
+    <ClInclude Include="Deck.h" />
+    <ClInclude Include="GameManager.h" />
+    <ClInclude Include="GameState.h" />
+    <ClInclude Include="GUI.h" />
+    <ClInclude Include="Hand.h" />
+    <ClInclude Include="Item.h" />
+    <ClInclude Include="Player.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="Attacks.txt" />
+    <Text Include="Characters.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
