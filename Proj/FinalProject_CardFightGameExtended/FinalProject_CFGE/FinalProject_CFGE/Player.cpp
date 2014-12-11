@@ -225,15 +225,15 @@ void Player::applyItem(int item)
 		cout << "\n\n" << character->getName()
 			<< " used " << it->first << ".\n\n" << endl;
 
-		if (GameManager::getInstance()->getPlayers().at(0)
+		if (GameManager::getInstance()->getPlayers()->at(0)
 			->getCharacter()->getName() == character->getName())
 		{
-			GameManager::getInstance()->getPlayers().at(1)
+			GameManager::getInstance()->getPlayers()->at(1)
 				->getCharacter()->defend(it->second.at(0), 0);
 		}
 		else
 		{
-			GameManager::getInstance()->getPlayers().at(0)
+			GameManager::getInstance()->getPlayers()->at(0)
 				->getCharacter()->defend(it->second.at(0), 0);
 		}
 		
@@ -313,4 +313,3 @@ void Player::applyItem(int item)
 	else
 		items.erase(usedItem);
 }
-

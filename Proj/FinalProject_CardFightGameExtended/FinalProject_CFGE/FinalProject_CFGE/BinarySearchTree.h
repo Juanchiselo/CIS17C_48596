@@ -25,7 +25,7 @@ private:
 	BinaryNode<T>* remove(BinaryNode<T>*, T);
 	void traverseInOrder(BinaryNode<T>*);
 	void print(BinaryNode<T>*, int);
-	T findMin(BinaryNode<T>*);
+	BinaryNode<T>* findMin(BinaryNode<T>*);
 	T findSibling(BinaryNode<T>*);
 public:
 	BinarySearchTree();
@@ -99,34 +99,32 @@ BinaryNode<T>* BinarySearchTree<T>::insert(BinaryNode<T>* root, T element)
 template <class T>
 BinaryNode<T>* BinarySearchTree<T>::remove(BinaryNode<T>* root, T element)
 {
-	//if (root != null)
-	//{
-	//	int comparison = element.compareTo(root.getElement());
+	if (root != NULL)
+	{
+		// Left child case.
+		if (element->getOrder() < root->getElement()->getOrder())
+			root->setLeftChild(remove(root->getLeftChild(), element));
 
-	//	// Left child case.
-	//	if (comparison < 0)
-	//		root.setLeftChild(remove(root.getLeftChild(), element));
+		// Right child case.
+		else if (element->getOrder() > root->getElement()->getOrder())
+			root->setRightChild(remove(root->getRightChild(), element));
 
-	//	// Right child case.
-	//	else if (comparison > 0)
-	//		root.setRightChild(remove(root.getRightChild(), element));
+		// Two children case.
+		else if (root->getLeftChild() != NULL && root->getRightChild() != NULL)
+		{
+			root->setElement(findMin(root->getRightChild())->getElement());
+			root->setRightChild(removeMin(root->getRightChild()));
+		}
 
-	//	// Two children case.
-	//	else if (root.getLeftChild() != null && root.getRightChild() != null)
-	//	{
-	//		root.setElement(findMin(root.getRightChild()).getElement());
-	//		root.setRightChild(removeMin(root.getRightChild()));
-	//	}
-
-	//	// Node found case.
-	//	else
-	//	{
-	//		root = (root.getLeftChild() != null)
-	//			? root.getLeftChild() : root.getRightChild();
-	//	}
-	//}
-	//else
-	//	System.out.println("ERROR: Element was not found.");
+		// Node found case.
+		else
+		{
+			root = (root->getLeftChild() != NULL)
+				? root->getLeftChild() : root->getRightChild();
+		}
+	}
+	else
+		System.out.println("ERROR: Element was not found.");
 
 	return root;
 }
@@ -202,10 +200,10 @@ T BinarySearchTree<T>::findSibling(BinaryNode<T>* root)
 {
 	if (root != NULL)
 	{
-		if (root->getParent()->getLeftChild == root)
-			return root->getParent()->getRightChild();
+		if (root->getParent()->getLeftChild() == root)
+			return root->getParent()->getRightChild()->getElement();
 		else
-			return root->getParent()->getLeftChild();
+			return root->getParent()->getLeftChild()->getElement();
 	}
 }
 
@@ -215,7 +213,9 @@ vector<T>* BinarySearchTree<T>::getPlayers()
 	vector<T>* players = new vector<T>();
 
 	players->push_back(findMin(root)->getElement());
-	players->push_back(findSibling(findMin(root)->getElement());
+	players->push_back(findSibling(findMin(root)));
+
+	return players;
 }
 
 #endif // BINARYSEARCHTREE_H

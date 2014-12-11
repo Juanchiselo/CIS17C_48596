@@ -22,7 +22,7 @@ GameManager::GameManager()
 void GameManager::cleanUp()
 {
 	players.clear();
-	currentPlayers.clear();
+	currentPlayers->clear();
 	characters.clear();
 }
 
@@ -135,7 +135,7 @@ GUI* GameManager::getGUI()
 }
 
 // Returns players.
-vector<Player*> GameManager::getPlayers()
+vector<Player*>* GameManager::getPlayers()
 {
 	return currentPlayers;
 }
@@ -290,6 +290,8 @@ void GameManager::startBattle()
 {
 	currentPlayers = tournament->getPlayers();
 
+	cout << "Players size: " << players.size() << endl;
+
 	// Instantiate items stack.
 	Item* anItem;
 	int itemsStackSize = 25;
@@ -409,9 +411,9 @@ void GameManager::compareCards()
 
 			// Have the player take the attack value of the enemy's
 			// chosen card and the defense of his own card.
-			currentPlayers.at(0)->getCharacter()
-				->defend(currentPlayers.at(1)->getChosenCard()->getAttack(),
-				currentPlayers.at(0)->getChosenCard()->getDefense());
+			currentPlayers->at(0)->getCharacter()
+				->defend(currentPlayers->at(1)->getChosenCard()->getAttack(),
+				currentPlayers->at(0)->getChosenCard()->getDefense());
 		}
 	}
 
@@ -424,8 +426,8 @@ void GameManager::compareCards()
 // Replaces the cards chosen by the players.
 void GameManager::replaceCards()
 {
-	for (int i = 0; i < currentPlayers.size(); i++)
-		currentPlayers.at(i)->getHand()->replaceCard();
+	for (int i = 0; i < currentPlayers->size(); i++)
+		currentPlayers->at(i)->getHand()->replaceCard();
 }
 
 void GameManager::battleMenu()
@@ -433,9 +435,9 @@ void GameManager::battleMenu()
 	// Create choice variable.
 	int choice;
 
-	for (int i = 0; i < currentPlayers.size(); i++)
+	for (int i = 0; i < currentPlayers->size(); i++)
 	{
-		if (!currentPlayers.at(i)->isPlayerAI())
+		if (!currentPlayers->at(i)->isPlayerAI())
 		{
 			do
 			{
@@ -449,16 +451,16 @@ void GameManager::battleMenu()
 				{
 				case 1:
 					// Player attacks.
-					currentPlayers.at(i)->attack();
+					currentPlayers->at(i)->attack();
 					break;
 				case 2:
 					// If the bag of the layer is not
 					// empty look at his items.
-					if (!currentPlayers.at(i)->getItems()->empty())
+					if (!currentPlayers->at(i)->getItems()->empty())
 					{
 						// Display the items inside
 						// the player's bag.
-						currentPlayers.at(i)->viewItems();
+						currentPlayers->at(i)->viewItems();
 
 						cout << "\nChoose an option:\n"
 							<< "1) Apply item\n"
@@ -471,7 +473,7 @@ void GameManager::battleMenu()
 						{
 							// Create pointer that points to the 
 							// player's bag.
-							map<string, int>* items = currentPlayers.at(i)->getItems();
+							map<string, int>* items = currentPlayers->at(i)->getItems();
 
 							do
 							{
@@ -490,15 +492,15 @@ void GameManager::battleMenu()
 							if (iterator->first == "Cards Swap" ||
 								iterator->first == "Health Package" ||
 								iterator->first == "Energy Package")
-								currentPlayers.at(i)->applyItem(choice);
+								currentPlayers->at(i)->applyItem(choice);
 							else
 							{
 								// If the chosen item is a Special Attack,
 								// make sure the player has the minimum
 								// energy to perform it.
-								if (currentPlayers.at(i)->getCharacter()->getEnergy() > 10
+								if (currentPlayers->at(i)->getCharacter()->getEnergy() > 10
 									&& iterator->first == "Special Attack")
-									currentPlayers.at(i)->applyItem(choice);
+									currentPlayers->at(i)->applyItem(choice);
 								else
 								{
 									cout << "You do not have the minimum"
@@ -532,11 +534,11 @@ void GameManager::battleMenu()
 
 			// If the bag of the enemy is not empty
 			// have him look at its contents.
-			if (!currentPlayers.at(i)->getItems()->empty())
+			if (!currentPlayers->at(i)->getItems()->empty())
 			{
 				// Create pointer that points to the 
 				// enemy's bag.
-				map<string, int>* items = currentPlayers.at(i)->getItems();
+				map<string, int>* items = currentPlayers->at(i)->getItems();
 
 				// Iterate through the enemy's bag.
 				for (auto iterator = items->begin();
@@ -553,7 +555,7 @@ void GameManager::battleMenu()
 						// Check if the health of the player is
 						// below the minimum health threshold,
 						// if it is use a health package.
-						if (currentPlayers.at(i)->getCharacter()->getHealth()
+						if (currentPlayers->at(i)->getCharacter()->getHealth()
 							< minHealthThreshold)
 							chosenItem = count;
 					}
@@ -564,8 +566,8 @@ void GameManager::battleMenu()
 						// Use the energy package only when
 						// the energy is less than the maximum
 						// energy.
-						if (currentPlayers.at(i)->getCharacter()->getEnergy()
-							< currentPlayers.at(i)->getCharacter()->getMaxEnergy())
+						if (currentPlayers->at(i)->getCharacter()->getEnergy()
+							< currentPlayers->at(i)->getCharacter()->getMaxEnergy())
 							chosenItem = count;
 					}
 
@@ -581,21 +583,21 @@ void GameManager::battleMenu()
 
 						// If the energy of the enemy is greater than or
 						// equal to the minimum energy needed then use it.
-						if (currentPlayers.at(i)->getCharacter()->getEnergy() >= minEnergyNeeded)
+						if (currentPlayers->at(i)->getCharacter()->getEnergy() >= minEnergyNeeded)
 							chosenItem = count;
 					}
 				}
 
 				// Apply the chosen item.
 				if (chosenItem != 0)
-					currentPlayers.at(i)->applyItem(chosenItem);
+					currentPlayers->at(i)->applyItem(chosenItem);
 				// If an item was not chosen then attack.
 				else
-					currentPlayers.at(i)->attack();
+					currentPlayers->at(i)->attack();
 			}
 			// If the enemy's bag is empty attack.
 			else
-				currentPlayers.at(i)->attack();
+				currentPlayers->at(i)->attack();
 		}
 	}		
 }

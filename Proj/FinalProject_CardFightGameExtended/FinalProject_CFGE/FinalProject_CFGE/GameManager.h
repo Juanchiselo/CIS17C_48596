@@ -38,7 +38,7 @@ public:
 	void setGameState(GameState::GameState);
 	GameState::GameState getGameState();
 	GUI* getGUI();
-	vector<Player*> getPlayers();
+	vector<Player*>* getPlayers();
 	void newGame();
 	void loadGame();
 	void startGame();

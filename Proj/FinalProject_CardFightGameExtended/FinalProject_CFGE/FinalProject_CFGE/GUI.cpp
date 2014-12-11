@@ -49,21 +49,21 @@ void GUI::drawStats()
 		cout << "     ";
 		if (i == 1)
 		{
-			cout << GameManager::getInstance()->getPlayers().at(0)->getCharacter()->getName()
+			cout << GameManager::getInstance()->getPlayers()->at(0)->getCharacter()->getName()
 				<< "           "
-				<< GameManager::getInstance()->getPlayers().at(1)->getCharacter()->getName();
+				<< GameManager::getInstance()->getPlayers()->at(1)->getCharacter()->getName();
 		}
 		if (i == 2)
 		{
-			cout << "Health: " << GameManager::getInstance()->getPlayers().at(0)->getCharacter()->getHealth()
+			cout << "Health: " << GameManager::getInstance()->getPlayers()->at(0)->getCharacter()->getHealth()
 				<< "            "
-				<< "Health: " << GameManager::getInstance()->getPlayers().at(1)->getCharacter()->getHealth();
+				<< "Health: " << GameManager::getInstance()->getPlayers()->at(1)->getCharacter()->getHealth();
 		}
 		if (i == 3)
 		{
-			cout << "Energy: " << GameManager::getInstance()->getPlayers().at(0)->getCharacter()->getEnergy()
+			cout << "Energy: " << GameManager::getInstance()->getPlayers()->at(0)->getCharacter()->getEnergy()
 				<< "            "
-				<< "Energy: " << GameManager::getInstance()->getPlayers().at(1)->getCharacter()->getEnergy();
+				<< "Energy: " << GameManager::getInstance()->getPlayers()->at(1)->getCharacter()->getEnergy();
 		}
 		cout << "       ";
 		cout << char(186) << endl;
@@ -103,19 +103,19 @@ void GUI::drawChosenCards()
 			output += char(186);
 			if (line == 5)
 			{
-				if (GameManager::getInstance()->getPlayers().at(0)->getChosenCard()->isItemCard())
+				if (GameManager::getInstance()->getPlayers()->at(0)->getChosenCard()->isItemCard())
 					output += " Item";
 				else
 					output += " A: " + to_string(GameManager::getInstance()
-					->getPlayers().at(0)->getChosenCard()->getAttack());
+					->getPlayers()->at(0)->getChosenCard()->getAttack());
 			}
 			else
 			{
-				if (GameManager::getInstance()->getPlayers().at(1)->getChosenCard()->isItemCard())
+				if (GameManager::getInstance()->getPlayers()->at(1)->getChosenCard()->isItemCard())
 					output += " Item";
 				else
 					output += " A: " + to_string(GameManager::getInstance()->
-					getPlayers().at(1)->getChosenCard()->getAttack());
+					getPlayers()->at(1)->getChosenCard()->getAttack());
 			}
 			output += " ";
 			output += char(186);
@@ -126,19 +126,19 @@ void GUI::drawChosenCards()
 			output += char(186);
 			if (line == 7)
 			{
-				if (GameManager::getInstance()->getPlayers().at(0)->getChosenCard()->isItemCard())
+				if (GameManager::getInstance()->getPlayers()->at(0)->getChosenCard()->isItemCard())
 					output += " Card";
 				else
 					output += " D: " + to_string(GameManager::getInstance()
-					->getPlayers().at(0)->getChosenCard()->getDefense());
+					->getPlayers()->at(0)->getChosenCard()->getDefense());
 			}
 			else
 			{
-				if (GameManager::getInstance()->getPlayers().at(1)->getChosenCard()->isItemCard())
+				if (GameManager::getInstance()->getPlayers()->at(1)->getChosenCard()->isItemCard())
 					output += " Card";
 				else
 					output += " D: " + to_string(GameManager::getInstance()
-					->getPlayers().at(1)->getChosenCard()->getDefense());
+					->getPlayers()->at(1)->getChosenCard()->getDefense());
 			}
 
 			output += " ";
